@@ -147,7 +147,7 @@ Azure Data Factory 内でコードを使用せずに一般的なデータ変換�
 
 - Challenge-03 [Azure Data Factory での変換の種類について説明する](https://learn.microsoft.com/ja-jp/training/modules/code-free-transformation-scale/3-describe-transformation-types)
 
-- Challenge-04 [演習 - Azure Data Factory のマッピング データ フローを作成する](./2-3-4-ex-Transform-data-using-mapping-data-flows.md)
+- Challenge-04 [演習 - Azure Data Factory のマッピング データ フローを作成する](./2-3-4-ex-TransformDataUsingMappingDataFlows.md)
 
 - Challenge-05 [マッピング データ フローをデバッグする](https://learn.microsoft.com/ja-jp/training/modules/code-free-transformation-scale/5-debug-mapping-data-flow)
 
