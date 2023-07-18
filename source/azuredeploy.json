@@ -86,17 +86,12 @@
       }
     },
     {
-        "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
-        "apiVersion": "2022-09-01",
-        "name": "[concat(parameters('storageAccountName'), '/sample-data')]",
-        "properties": {
-            "immutableStorageWithVersioning": {
-                "enabled": false
-            },
-            "defaultEncryptionScope": "$account-encryption-key",
-            "denyEncryptionScopeOverride": false,
-            "publicAccess": "None"
-        }
+      "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+      "apiVersion": "2022-05-01",
+      "name": "[format('{0}/default/{1}', parameters('storageAccountName'),sample-data )]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+      ]
     }
   ],
   "outputs": {
