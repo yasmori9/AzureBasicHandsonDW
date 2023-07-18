@@ -89,10 +89,6 @@
         "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
         "apiVersion": "2022-09-01",
         "name": "[concat(parameters('storageAccountName'), '/default/sample-data')]",
-        "dependsOn": [
-            "[resourceId('Microsoft.Storage/storageAccounts/blobServices', parameters('storageAccountName'), 'default')]",
-            "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
-        ],
         "properties": {
             "immutableStorageWithVersioning": {
                 "enabled": false
