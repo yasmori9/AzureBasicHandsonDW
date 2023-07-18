@@ -18,10 +18,6 @@
 
 - 初心者レベルでの Azure portal を使用するリソースの作成および管理経験
 
-### Architecture
-
-<font color="Red">要相談</font>
-
 <div>
 <br>
 </div>
@@ -37,9 +33,7 @@
 ### 2. Azure Data Factory を触ってみる
 
 - データインジェストで主に使用される Azure Data Factory について理解する
-- Azure Data Factory を使用してデータコピーを行う
-- Azure Data Factory を使用してデータ変換を行う
-- Azure Data Factory と V-NET 内にある VM との連携方法を理解する
+- Azure Data Factory と V-NET 内にある リソース との連携方法を理解する
 
 ### 3. Azure Synapse Analytics を触ってみる
 
@@ -49,7 +43,7 @@
 ### 4. Azure Synapse Analytics マネージド仮想ネットワークを触ってみる
 
 - Azure Synapse Analyticsのマネージド仮想ネットワークについて理解する
-- Azyre Synapse Analytics と V-NET 内にある VM との連携方法について理解する
+- Azyre Synapse Analytics と Azureの各リソース とのプライベート接続について理解する
 
 <div>
 <br>
@@ -96,7 +90,7 @@
 
 ### 1. Azure データ分析基盤概要について
 
-Azure データ分析基盤の全体像を説明を聞いて理解する。
+[Azure データ分析基盤の全体像](./1.AzureDataPlatform.pdf)を説明を聞いて理解する。
 
 <div>
 <br>
@@ -153,7 +147,7 @@ Azure Data Factory 内でコードを使用せずに一般的なデータ変換�
 
 - Challenge-03 [Azure Data Factory での変換の種類について説明する](https://learn.microsoft.com/ja-jp/training/modules/code-free-transformation-scale/3-describe-transformation-types)
 
-- Challenge-04 [演習 - Azure Data Factory のマッピング データ フローを作成する](https://learn.microsoft.com/ja-jp/azure/data-factory/tutorial-data-flow#create-a-pipeline-with-a-data-flow-activity)
+- Challenge-04 [演習 - Azure Data Factory のマッピング データ フローを作成する](./2-3-4-ex-Transform-data-using-mapping-data-flows.md)
 
 - Challenge-05 [マッピング データ フローをデバッグする](https://learn.microsoft.com/ja-jp/training/modules/code-free-transformation-scale/5-debug-mapping-data-flow)
 
@@ -217,6 +211,8 @@ Azure Synapse Analytics のマネージド仮想ネットワークについて�
 #### Azure Synapse Analytics
 
 [Azure Synapse Analytics の概要 - Training | Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/introduction-azure-synapse-analytics/)
+
+#### Power BI
 
 #### Microsoft Fabric
 
