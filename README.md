@@ -116,7 +116,7 @@ Azure Data Factory と、クラウドで大規模なデータ インジェスト
 
 - Challenge-06 [Azure Data Factory のセキュリティ - Training | Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/data-integration-azure-data-factory/6-security)
 
-- Challenge-07 [Azure Data Factory を設定する - Training | Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/data-integration-azure-data-factory/7-set-up)
+- Challenge-07 [演習 - Azure Data Factory を設定する - Training | Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/data-integration-azure-data-factory/7-set-up)
 
 #### 2-2. Azure Data Factory または Azure Synapse パイプラインを使用したペタバイト規模のインジェスト
 
@@ -129,13 +129,26 @@ Azure Data Factory を使用してさまざまなデータ ストア間でデー
 - Challenge-03 [データ ファクトリのコネクタの説明](https://learn.microsoft.com/ja-jp/training/modules/petabyte-scale-ingestion-azure-data-factory/3-describe-connectors)
 
 - Challenge-04 [演習 - データのコピー ツールを使用してデータをコピーする - Azure Data Factory | Microsoft Learn](https://learn.microsoft.com/ja-jp/azure/data-factory/quickstart-hello-world-copy-data-tool)
-  ※注意事項： [フォルダーパス]等でコンテナ名が「adftutorial」とありますが「datafactory」の誤りです。
+  ※注意事項： [フォルダーパス]等でコンテナ名が「adftutorial」とありますが「datafactory」と読み替えてください。
 
-- Challenge-05 [演習 - セルフホステッド統合ランタイムを管理する - Training | Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/petabyte-scale-ingestion-azure-data-factory/5-manage-self-hosted-integration-runtime)
+- Challenge-05 [Azure Data Factory の統合ランタイム](https://learn.microsoft.com/ja-jp/azure/data-factory/concepts-integration-runtime)
+  
+  <div>
+  <details>
+  <summary>補足</summary>
+  
+  
+  ![](C:\Users\yasmori\OneDrive%20-%20Microsoft\ドキュメント\DownloaD\azureBasicHandsonDW\images\image2-2-1.png)
+  
+  
+  </details>
+  </div>
 
-- Challnege-06 [演習 - Azure 統合ランタイムをセットアップする - Training | Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/petabyte-scale-ingestion-azure-data-factory/6-set-up-azure-integration-runtime)
+- Challenge-06 [演習 - セルフホステッド統合ランタイムを管理する - Training | Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/petabyte-scale-ingestion-azure-data-factory/5-manage-self-hosted-integration-runtime)
 
-- Challenge-07 [データ インジェストのセキュリティに関する考慮事項を理解する](https://learn.microsoft.com/ja-jp/training/modules/petabyte-scale-ingestion-azure-data-factory/7-understand-data-ingestion-security-considerations)
+- Challnege-07 [演習 - Azure 統合ランタイムをセットアップする - Training | Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/petabyte-scale-ingestion-azure-data-factory/6-set-up-azure-integration-runtime)
+
+- Challenge-08 [データ インジェストのセキュリティに関する考慮事項を理解する](https://learn.microsoft.com/ja-jp/training/modules/petabyte-scale-ingestion-azure-data-factory/7-understand-data-ingestion-security-considerations)
 
 #### 2-3. コードを書かずに Azure Data Factory または Azure Synapse パイプラインを使用して大規模な変換を実行する
 
