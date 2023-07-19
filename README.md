@@ -171,18 +171,15 @@ Azure Data Factory 内でコードを使用せずに一般的なデータ変換�
 
 Azure Synapse Analytics の主な機能に関するステップバイステップガイドになります。
 
-- Challenge-01 [Synapse ワークスペースを作成する](./3-ex-AzureSynapseAnalytics.md#1-synapse-%E3%83%AF%E3%83%BC%E3%82%AF%E3%82%B9%E3%83%9A%E3%83%BC%E3%82%B9%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B)
-- Challenge-02 [サーバーレス SQL プールを使用してデータを分析する](./3-ex-AzureSynapseAnalytics.md#2-%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E3%83%AC%E3%82%B9-sql-%E3%83%97%E3%83%BC%E3%83%AB%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92%E5%88%86%E6%9E%90%E3%81%99%E3%82%8B)
-- Challenge-03 [Data Explorer を使用して分析する](./3-ex-AzureSynapseAnalytics.md#3-data-explorer-%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6%E5%88%86%E6%9E%90%E3%81%99%E3%82%8B-%E3%83%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC)
-- Challenge-04 [サーバーレス Spark プールを使用して分析する](./3-ex-AzureSynapseAnalytics.md#4-%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E3%83%AC%E3%82%B9-spark-%E3%83%97%E3%83%BC%E3%83%AB%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6%E5%88%86%E6%9E%90%E3%81%99%E3%82%8B)
-- Challenge-05 [専用 SQL プールを使用して分析する](./3-ex-AzureSynapseAnalytics.md#5-%E5%B0%82%E7%94%A8-sql-%E3%83%97%E3%83%BC%E3%83%AB%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6%E5%88%86%E6%9E%90%E3%81%99%E3%82%8B)
-- Challenge-06 [ストレージ アカウント内のデータを分析する](./3-ex-AzureSynapseAnalytics.md#6-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8-%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E5%86%85%E3%81%AE%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92%E5%88%86%E6%9E%90%E3%81%99%E3%82%8B)
-- Challenge-07 [パイプラインと統合する](./3-ex-AzureSynapseAnalytics.md#7-%E3%83%91%E3%82%A4%E3%83%97%E3%83%A9%E3%82%A4%E3%83%B3%E3%81%A8%E7%B5%B1%E5%90%88%E3%81%99%E3%82%8B)
-- Challenge-08 [Power BI で視覚化する](./3-ex-AzureSynapseAnalytics.md#8-power-bi-%E3%81%A7%E8%A6%96%E8%A6%9A%E5%8C%96%E3%81%99%E3%82%8B)
+ 手順に従って進めると、Synapse ワークスペースが作成されます。 専用 SQL プール (以前の SQL DW) 用のワークスペースを有効にする手順も含まれています。 ワークスペースが作成されたら、専用 SQL プール、サーバーレス SQL プール、またはサーバーレス Apache Spark プールを使用して、データの分析を開始できます。またPower BI と連携した可視化も行うことが可能です。
 
-<div>
-<br>
-</div>
+- Challenge [演習 - Azure Synapse Analytics](./3-ex-AzureSynapseAnalytics.md)
+  
+  <div>
+  <br>
+  </div>
+
+
 
 ### <参考> Azure Synapse Analytics のマネージド仮想ネットワーク
 
@@ -195,6 +192,10 @@ Azure Synapse Analytics のマネージド仮想ネットワークについて�
 - Challenge-03 [マネージド プライベート エンドポイント - Azure Synapse Analytics | Microsoft Learn](https://learn.microsoft.com/ja-jp/azure/synapse-analytics/security/synapse-workspace-managed-private-endpoints)
 
 - Challenge-04 [データ ソースの結果に接続するためのマネージド プライベート エンドポイントを作成します - Azure Synapse Analytics | Microsoft Learn](https://learn.microsoft.com/ja-jp/azure/synapse-analytics/security/how-to-create-managed-private-endpoints)
+
+<div>
+<br>
+</div>
 
 ## 学習コンテンツ ラーニングパス
 
@@ -213,6 +214,8 @@ Azure Synapse Analytics のマネージド仮想ネットワークについて�
 [Azure Synapse Analytics の概要 - Training | Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/introduction-azure-synapse-analytics/)
 
 #### Power BI
+
+[Power BI の概要 | Microsoft Learn](https://learn.microsoft.com/ja-jp/power-bi/fundamentals/)
 
 #### Microsoft Fabric
 
