@@ -25,7 +25,7 @@ Azure Data Lake Storage Gen2 をシンクのデータストアとして使用し
 
 テンプレートをデプロイするために、次のようなページにリダイレクトされます。ここで前の演習で作成した**リソースグループ**を選択してください。（その他の値は全て既定値のままで問題ありません。）次に、**[確認と作成]** をクリックし、**[作成]** をクリックしてリソースをデプロイします。
 
-![](C:\Users\yasmori\OneDrive%20-%20Microsoft\ドキュメント\DownloaD\azureBasicHandsonDW\images\image2-3-0.png)
+![](images/image2-3-0.png)
 
 ## Data Flow アクティビティを含むパイプラインの作成
 
@@ -181,17 +181,18 @@ Azure Data Lake Storage Gen2 をシンクのデータストアとして使用し
 
 パイプラインを発行する前にデバッグすることができます。 この手順では、データ フロー パイプラインのデバッグ実行をトリガーします。 データのプレビューではデータが書き込まれませんが、デバッグ実行によってシンクの変換先にデータが書き込まれます。
 
-
-
 1. パイプライン キャンバスに移動します。 **[デバッグ]** をクリックして、デバッグ実行をトリガーします。
    
    ![[デバッグ] が強調して示されているパイプライン キャンバスを示すスクリーンショット。](https://learn.microsoft.com/ja-jp/azure/data-factory/media/tutorial-data-flow/pipeline1.png)
+
 2. Data Flow アクティビティのパイプライン デバッグでは、アクティブなデバッグ クラスターが使用されますが、それでも初期化には少なくとも 1 分かかります。 進行状況は **[出力]** タブで追跡することができます。実行が正常に完了したら、眼鏡のアイコンをクリックして [監視] ウィンドウを開きます。
    
    ![パイプライン](https://learn.microsoft.com/ja-jp/azure/data-factory/media/tutorial-data-flow/pipeline2.png)
+
 3. [監視] ウィンドウには、各変換手順で使用した行数と所要時間が表示されます。
    
    ![各変換ステップで費やされた行数と時間を確認できる監視ペインを示すスクリーンショット。](https://learn.microsoft.com/ja-jp/azure/data-factory/media/tutorial-data-flow/pipeline3.png)
+
 4. 変換をクリックすると、データの列とパーティション分割に関する詳細情報が表示されます。
    
    ![監視](https://learn.microsoft.com/ja-jp/azure/data-factory/media/tutorial-data-flow/pipeline4.png)
