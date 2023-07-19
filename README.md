@@ -40,7 +40,7 @@
 - Azure のデータ分析統合基盤である Azure Synapse Analytics について理解する
 - Azure Synapse Analytics の各機能の基本操作を理解する
 
-### 4. Azure Synapse Analytics マネージド仮想ネットワークを触ってみる
+### 4. Azure Synapse Analytics のマネージド仮想ネットワーク
 
 - Azure Synapse Analyticsのマネージド仮想ネットワークについて理解する
 - Azyre Synapse Analytics と Azureの各リソース とのプライベート接続について理解する
@@ -181,7 +181,7 @@ Azure Synapse Analytics の主な機能に関するステップバイステッ�
 
 
 
-### <参考> Azure Synapse Analytics のマネージド仮想ネットワーク
+### 4. <参考> Azure Synapse Analytics のマネージド仮想ネットワーク
 
 Azure Synapse Analytics のマネージド仮想ネットワークについて説明します。
 
