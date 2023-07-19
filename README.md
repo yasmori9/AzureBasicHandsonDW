@@ -138,7 +138,7 @@ Azure Data Factory を使用してさまざまなデータ ストア間でデー
   <summary>補足</summary>
   
   
-  ![](C:\Users\yasmori\OneDrive%20-%20Microsoft\ドキュメント\DownloaD\azureBasicHandsonDW\images\image2-2-1.png)
+  ![](images/image2-2-1.png)
   
   
   </details>
