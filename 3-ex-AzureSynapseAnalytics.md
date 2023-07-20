@@ -45,7 +45,7 @@
 
 以下のフィールドを設定します。
 
-1. **[ワークスペース名]** - グローバルに一意の任意の名前を選択します。 この演習では、**<yourname>myworkspace** を使用します。
+1. **[ワークスペース名]** - グローバルに一意の任意の名前を選択します。 この演習では、**[yourname]myworkspace** を使用します。
 
 2. **[リージョン]** - クライアント アプリケーションまたはサービス (Azure VM、Power BI、Azure Analysis Service など) と、データを含むストレージ (Azure Data Lake Storage、Azure Cosmos DB 分析ストレージ) が配置されているリージョンを選択します。 (ここでは **Japan East** を選択。)
    
@@ -85,7 +85,7 @@ Azure Synapse ワークスペースが作成された後、Synapse Studio を開
 
 4. **[Linked]** を選択します。
 
-5. **[Azure Data Lake Storage Gen2]** カテゴリの下に、**<yourname>myworkspace ( プライマリ - contosolake )** のような名前の項目を展開します。
+5. **[Azure Data Lake Storage Gen2]** カテゴリの下に、**[yourname]myworkspace ( プライマリ - contosolake )** のような名前の項目を展開します。
 
 6. **[users (Primary)]** という名前のコンテナーを選択します。
 
@@ -548,7 +548,7 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats_parquetformat")
 
 1. Synapse Studio の **[Data]** ハブに移動し、 **[Linked]** を選択します。
 
-2. **[Azure Data Lake Storage Gen2]**>**[<yourname>myworkspace (Primary - contosolake)]** に移動します。
+2. **[Azure Data Lake Storage Gen2]**>**[[yourname]myworkspace (Primary - contosolake)]** に移動します。
 
 3. **[users (Primary)]** を選択します。 **NYCTaxi** フォルダーが表示されます。 その中に、**PassengerCountStats_csvformat** および **PassengerCountStats_parquetformat** という 2 つのフォルダーが表示されます。
 
