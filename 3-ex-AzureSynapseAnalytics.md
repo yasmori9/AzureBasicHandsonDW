@@ -2,14 +2,14 @@
 
 # 演習 - Azure Synapse Analytics
 
-この演習は、Azure Synapse Analytics の主な機能に関するステップバイステップ ガイドです。 手順に従って進めると、Synapse ワークスペースが作成されます。 専用 SQL プール (以前の SQL DW) 用のワークスペースを有効にする手順も含まれています。 ワークスペースが作成されたら、専用 SQL プール、サーバーレス SQL プール、またはサーバーレス Apache Spark プールを使用して、データの分析を開始できます。
+本演習では、Azure Synapse Analytics の主な機能に関する操作を学びます。手順に従って進めると、Synapse ワークスペースが作成され、研修データを取り込み、サーバーレス SQL プール、Data Explorer、Apache Spark、専用 SQL プール (以前の SQL DW) 、ストレージ内のデータを分析し、Power BI でデータを可視化するまでの一連の操作を学ぶことができます。
 
 ### 目次
 
 - [1. Synapse ワークスペースを作成する](./3-ex-AzureSynapseAnalytics.md#1-synapse-%E3%83%AF%E3%83%BC%E3%82%AF%E3%82%B9%E3%83%9A%E3%83%BC%E3%82%B9%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B)
 - [2. サーバーレス SQL プールを使用してデータを分析する](./3-ex-AzureSynapseAnalytics.md#2-%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E3%83%AC%E3%82%B9-sql-%E3%83%97%E3%83%BC%E3%83%AB%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92%E5%88%86%E6%9E%90%E3%81%99%E3%82%8B)
 - [3. Data Explorer を使用して分析する](./3-ex-AzureSynapseAnalytics.md#3-data-explorer-%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6%E5%88%86%E6%9E%90%E3%81%99%E3%82%8B-%E3%83%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC)
-- [4. サーバーレス Spark プールを使用して分析する](./3-ex-AzureSynapseAnalytics.md#4-%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E3%83%AC%E3%82%B9-spark-%E3%83%97%E3%83%BC%E3%83%AB%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6%E5%88%86%E6%9E%90%E3%81%99%E3%82%8B)
+- [4. Apache Spark を使用して分析を行う](./3-ex-AzureSynapseAnalytics.md#4-%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E3%83%AC%E3%82%B9-spark-%E3%83%97%E3%83%BC%E3%83%AB%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6%E5%88%86%E6%9E%90%E3%81%99%E3%82%8B)
 - [5. 専用 SQL プールを使用して分析する](./3-ex-AzureSynapseAnalytics.md#5-%E5%B0%82%E7%94%A8-sql-%E3%83%97%E3%83%BC%E3%83%AB%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6%E5%88%86%E6%9E%90%E3%81%99%E3%82%8B)
 - [6. ストレージ アカウント内のデータを分析する](./3-ex-AzureSynapseAnalytics.md#6-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8-%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E5%86%85%E3%81%AE%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92%E5%88%86%E6%9E%90%E3%81%99%E3%82%8B)
 - [7. パイプラインと統合する](./3-ex-AzureSynapseAnalytics.md#7-%E3%83%91%E3%82%A4%E3%83%97%E3%83%A9%E3%82%A4%E3%83%B3%E3%81%A8%E7%B5%B1%E5%90%88%E3%81%99%E3%82%8B)
@@ -45,7 +45,7 @@
 
 以下のフィールドを設定します。
 
-1. **[ワークスペース名]** - グローバルに一意の任意の名前を選択します。 この演習では、**[yourname]myworkspace** を使用します。
+1. **[ワークスペース名]** - グローバルに一意の任意の名前を選択します。 この演習では、**[yourname]myworkspace** を使用します。（[yourname]の部分はご自身のお名前などを使用し、グローバルで一意になるようにます。）
 
 2. **[リージョン]** - クライアント アプリケーションまたはサービス (Azure VM、Power BI、Azure Analysis Service など) と、データを含むストレージ (Azure Data Lake Storage、Azure Cosmos DB 分析ストレージ) が配置されているリージョンを選択します。 (ここでは **Japan East** を選択。)
    
@@ -55,7 +55,7 @@
 
 **[Data Lake Storage Gen 2 の選択]** で、次の操作を行います。
 
-1. **[アカウント名]** で、 **[新規作成]** を選択し、新しいストレージ アカウントに **[yourname]contosolake** などの名前を付けます。この名前は一意である必要があります。
+1. **[アカウント名]** で、 **[新規作成]** を選択し、新しいストレージ アカウントに **[yourname]contosolake** などの名前を付けます。この名前は一意である必要があります。（[yourname]の部分はご自身のお名前などを使用し、グローバルで一意になるようにます。）
 2. **[ファイル システム名]** で、 **[新規作成]** を選択し、**users** という名前を付けます。 これにより、**users** というストレージ コンテナーが作成されます。 ワークスペースでは、このストレージ アカウントを Spark テーブルおよび Spark アプリケーション ログの "プライマリ" ストレージ アカウントとして使用します。
 3. "Data Lake Storage Gen2 アカウントのストレージ BLOB データ共同作成者ロールを自分に割り当てる" ためのボックスをオンにします。
 
@@ -65,9 +65,11 @@
 
 #### Synapse Studio を開く
 
-Azure Synapse ワークスペースが作成された後、Synapse Studio を開く方法は 2 つあります。
+Azure Synapse ワークスペースが作成された後、Synapse Studio を開きます。
 
-1. [Azure portal](https://portal.azure.com/) で Synapse ワークスペースを開き、Synapse ワークスペースの **[概要]** セクションで、[Synapse Studio の起動] ボックスの **[オープン]** を選択します。
+1. [Azure portal](https://portal.azure.com/) で 先に作成した Synapse ワークスペースを開き、Synapse ワークスペースの **[概要]** セクションで、[Synapse Studio の起動] ボックスの **[オープン]** を選択します。
+
+　　※ブラウザに登録されているアカウントにより本手順で「読み込めませんでした」のエラーが出る場合は次の手順をお試しください。
 
 2. `https://web.azuresynapse.net/ja/` にアクセスし、ワークスペースにサインインします。
    
@@ -85,7 +87,7 @@ Azure Synapse ワークスペースが作成された後、Synapse Studio を開
 
 4. **[Linked]** を選択します。
 
-5. **[Azure Data Lake Storage Gen2]** カテゴリの下に、**[yourname]myworkspace ( プライマリ - [yourname]contosolake )** のような名前の項目を展開します。
+5. **[Azure Data Lake Storage Gen2]** カテゴリの下にある、**[yourname]myworkspace ( プライマリ - [yourname]contosolake )** となっている名前の項目を展開します。
 
 6. **[users (Primary)]** という名前のコンテナーを選択します。
 
@@ -100,7 +102,7 @@ Parquet ファイルをアップロードしたら、次の 2 つの URI で使�
 
 <div>
 <font color="Red">
-この後の演習では、**[yourname]contosolake** をワークスペース作成時に設定したプライマリストレージアカウント名で置き換えて演習を進めてください。
+この後の演習では、**[yourname]contosolake** の [yourname] の部分をワークスペース作成時に設定したプライマリストレージアカウント名で置き換えて演習を進めてください。
 </font>
 </div>
 
@@ -118,9 +120,9 @@ Parquet ファイルをアップロードしたら、次の 2 つの URI で使�
 
 ### サーバーレス SQL プールを使用してニューヨーク市のタクシー データを分析する
 
-1. Synapse Studio で、 **[Develop]** ハブに移動します。
+1. Synapse Studio の左側のペインで、 **[Develop]** を選びます。
 
-2. 新しい SQL スクリプトを作成します。
+2.  **[＋]** をクリックし、新しい SQL スクリプトを作成します。
 
 3. 以下のコードをスクリプトに貼り付けます。（[yourname]の部分はご自身でつけた名前に書き換えてください。）
    
@@ -149,7 +151,7 @@ Parquet ファイルをアップロードしたら、次の 2 つの URI で使�
 - 特定のデータ ソースまたはデータベース オブジェクトへのアクセス許可を持つデータベース ユーザー。
 
 - クエリの中で使用できるユーティリティ ビュー、プロシージャ、関数。
-1. `master` データベースを使用して、カスタム データベース オブジェクト用に別のデータベースを作成します。 カスタム データベース オブジェクトを `master` データベースに作成することはできません。
+1. 先の SQL スクリプトに記載されている SQL 文を消して、次の SQL 文に書き換え、実行します。 `master` データベースを使用して、カスタム データベース オブジェクト用に別のデータベースを作成します。 カスタム データベース オブジェクトを `master` データベースに作成することはできません。
    
    ```sql
    CREATE DATABASE DataExplorationDB 
@@ -180,7 +182,7 @@ Parquet ファイルをアップロードしたら、次の 2 つの URI で使�
 4. 必要に応じて、新しく作成された `DataExplorationDB` データベースを使用して、外部データにアクセスする `DataExplorationDB` でユーザーのログインを作成します。
    
    ```sql
-   CREATE LOGIN data_explorer WITH PASSWORD = 'My Very Strong Password 1234!';
+   CREATE LOGIN data_explorer WITH PASSWORD = 'Password1234!';
    ```
    
    次に、上記のログイン用に `ADMINISTER DATABASE BULK OPERATIONS` にデータベース ユーザーを作成し、`DataExplorationDB` アクセス許可を付与します。
@@ -205,7 +207,7 @@ Parquet ファイルをアップロードしたら、次の 2 つの URI で使�
        ) AS [result]
    ```
 
-6. ワークスペースに変更を**発行**します。
+6. SQL スクリプトタブ上部のメニューにある「発行」をクリックし、ワークスペースに変更を**発行**します。
 
 データ探索データベースは、ユーティリティ オブジェクトを格納できる単純なプレースホルダーにすぎません。 Synapse SQL プールでできることは他にもたくさんあります。Azure のデータ ソース上に構築されるリレーショナル レイヤー、つまり論理データ ウェアハウスを作成することもできます。 [こちらのチュートリアルで論理データ ウェアハウスの構築](https://learn.microsoft.com/ja-jp/azure/synapse-analytics/sql/tutorial-data-analyst)について詳しく説明しています。
 
@@ -217,13 +219,13 @@ Parquet ファイルをアップロードしたら、次の 2 つの URI で使�
 
 ### Data Explorer プールを作成する
 
-1. Synapse Studio の左側のペインで、**[Manage][Data Explorer プール]** を選びます。
+1. Synapse Studio の左側のペインで、**[Manage]** > **[Data Explorer プール]** を選びます。
 
 2. **[新規]** を選び、 **[基本]** タブで、以下の詳細を入力します。
    
    | **設定**                   | **推奨値**             | **説明**                                    |
    | ------------------------ | ------------------- | ----------------------------------------- |
-   | Azure Data Explorer プール名 | contosodataexplorer | これは、Azure Data Explorer プールに付けられる名前です。    |
+   | Azure Data Explorer プール名 | contosoadx | これは、Azure Data Explorer プールに付けられる名前です。    |
    | ワークロード                   | Compute optimized   | このワークロードにより、CPU から SSD へのストレージの比率が高くなります。 |
    | ノード サイズ                  | Small (4 コア)        | この演習のコストを削減するために、最小サイズに設定します。             |
    
@@ -241,7 +243,7 @@ Parquet ファイルをアップロードしたら、次の 2 つの URI で使�
    
    | **設定**     | **推奨値**             | **説明**                                                               |
    | ---------- | ------------------- | -------------------------------------------------------------------- |
-   | プール名       | contosodataexplorer | 使用する Data Explorer プールの名前                                            |
+   | プール名       | contosoadx | 使用する Data Explorer プールの名前                                            |
    | 名前         | TestDatabase        | データベース名はクラスター内で一意である必要があります。                                         |
    | 既定の保持期間    | 365                 | クエリにデータを使用できることが保証される期間 (日数) です。 期間は、データが取り込まれた時点から測定されます。           |
    | 既定のキャッシュ期間 | 31                  | 頻繁にクエリされるデータが、長期ストレージではなく SSD ストレージまたは RAM で利用できるように保持される期間 (日数) です。 |
@@ -252,9 +254,9 @@ Parquet ファイルをアップロードしたら、次の 2 つの URI で使�
 
 1. Synapse Studio の左側のペインで、 **[Develop]** を選びます。
 
-2. **[KQL スクリプト]** で、[**+**] (新しいリソースの追加) >**[KQL スクリプト]** を選びます。 右側のウィンドウで、スクリプト名を指定できます。
+2. **[+]** (新しいリソースの追加) >**[KQL スクリプト]** を選びます。 右側のウィンドウで、スクリプト名を指定できます。
 
-3. **[接続先]** メニューで、[*contosodataexplorer*] を選択します。
+3. **[接続先]** メニューで、[*contosoadx*] を選択します。
 
 4. **[データベースの使用]** メニューで、 *[TestDatabase]* を選びます。
 
@@ -266,7 +268,7 @@ Parquet ファイルをアップロードしたら、次の 2 つの URI で使�
    
    > **Note**
    > 
-   > テーブルが正常に作成されたことを確認します。 左側のペインで、**[Data]** を選び、*contosodataexplorer* のその他のメニューを選び、**[最新の情報に更新]** を選択します。 *[contosodataexplorer]* で **[テーブル]** を展開し、*StormEvents* テーブルが一覧に表示されていることを確認します。
+   > テーブルが正常に作成されたことを確認します。 左側のペインで、**[Data]** を選び、*contosoadx* のその他のメニューを選び、**[最新の情報に更新]** を選択します。 *[contosoadx]* で **[テーブル]** を展開し、*StormEvents* テーブルが一覧に表示されていることを確認します。
 
 6. 次のコマンドを貼り付け、**[実行]** を選択して、StormEvents テーブルにデータを取り込みます。
    
@@ -336,7 +338,7 @@ Parquet ファイルをアップロードしたら、次の 2 つの URI で使�
 
 5. ノートブックの **[アタッチ先]** メニューで、前に作成した **Spark1** サーバーレス Spark プールを選択します。
 
-6. セルで **[実行]** を選択します。 このセルを実行するために必要であれば、Synapse によって新しい Spark セッションが開始されます。 新しい Spark セッションが必要な場合、最初は作成に約 2 秒かかります。
+6. セルで **[実行]** を選択します。 このセルを実行するために必要であれば、Synapse によって新しい Spark セッションが開始されます。 新しい Spark セッションが必要な場合、最初は作成に約 2 分かかります。
 
 7. データフレームのスキーマを表示するだけの場合は、次のコードを使用してセルを実行します。
    
@@ -374,13 +376,13 @@ Parquet ファイルをアップロードしたら、次の 2 つの URI で使�
    ```py
    %%pyspark
    df = spark.sql("""
-      SELECT PassengerCcount,
+      SELECT PassengerCount,
           SUM(TripDistanceMiles) as SumTripDistance,
           AVG(TripDistanceMiles) as AvgTripDistance
       FROM nyctaxi.trip
-      WHERE TripDistanceMiles > 0 AND passenger_count > 0
-      GROUP BY PassengerCcount
-      ORDER BY PassengerCcount
+      WHERE TripDistanceMiles > 0 AND passengerCount > 0
+      GROUP BY PassengerCount
+      ORDER BY PassengerCount
    """) 
    display(df)
    df.write.saveAsTable("nyctaxi.passengercountstats")
