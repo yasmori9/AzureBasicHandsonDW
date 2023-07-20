@@ -55,7 +55,7 @@
 
 **[Data Lake Storage Gen 2 の選択]** で、次の操作を行います。
 
-1. **[アカウント名]** で、 **[新規作成]** を選択し、新しいストレージ アカウントに **contosolake** などの名前を付けます。この名前は一意である必要があります。
+1. **[アカウント名]** で、 **[新規作成]** を選択し、新しいストレージ アカウントに **[yourname]contosolake** などの名前を付けます。この名前は一意である必要があります。
 2. **[ファイル システム名]** で、 **[新規作成]** を選択し、**users** という名前を付けます。 これにより、**users** というストレージ コンテナーが作成されます。 ワークスペースでは、このストレージ アカウントを Spark テーブルおよび Spark アプリケーション ログの "プライマリ" ストレージ アカウントとして使用します。
 3. "Data Lake Storage Gen2 アカウントのストレージ BLOB データ共同作成者ロールを自分に割り当てる" ためのボックスをオンにします。
 
@@ -85,7 +85,7 @@ Azure Synapse ワークスペースが作成された後、Synapse Studio を開
 
 4. **[Linked]** を選択します。
 
-5. **[Azure Data Lake Storage Gen2]** カテゴリの下に、**[yourname]myworkspace ( プライマリ - contosolake )** のような名前の項目を展開します。
+5. **[Azure Data Lake Storage Gen2]** カテゴリの下に、**[yourname]myworkspace ( プライマリ - [yourname]contosolake )** のような名前の項目を展開します。
 
 6. **[users (Primary)]** という名前のコンテナーを選択します。
 
@@ -95,12 +95,12 @@ Azure Synapse ワークスペースが作成された後、Synapse Studio を開
 
 Parquet ファイルをアップロードしたら、次の 2 つの URI で使用できるようになります。
 
-- `https://contosolake.dfs.core.windows.net/users/NYCTrip.parquet`
-- `abfss://users@contosolake.dfs.core.windows.net/NYCTrip.parquet`
+- `https://[yourname]contosolake.dfs.core.windows.net/users/NYCTrip.parquet`
+- `abfss://users@[yourname]contosolake.dfs.core.windows.net/NYCTrip.parquet`
 
 <div>
 <font color="Red">
-この後の演習では、**contosolake** をワークスペース作成時に設定したプライマリストレージアカウント名で置き換えて演習を進めてください。
+この後の演習では、**[yourname]contosolake** をワークスペース作成時に設定したプライマリストレージアカウント名で置き換えて演習を進めてください。
 </font>
 </div>
 
@@ -122,19 +122,19 @@ Parquet ファイルをアップロードしたら、次の 2 つの URI で使�
 
 2. 新しい SQL スクリプトを作成します。
 
-3. 以下のコードをスクリプトに貼り付けます。
+3. 以下のコードをスクリプトに貼り付けます。（[yourname]の部分はご自身でつけた名前に書き換えてください。）
    
    ```sql
    SELECT
        TOP 100 *
    FROM
        OPENROWSET(
-           BULK 'https://contosolake.dfs.core.windows.net/users/NYCTrip.parquet',
+           BULK 'https://[yourname]contosolake.dfs.core.windows.net/users/NYCTrip.parquet',
            FORMAT='PARQUET'
        ) AS [result]
    ```
 
-4. **[実行]** を選択します。
+5. **[実行]** を選択します。
 
 データの探索は、自分のデータの基本的な特性が理解できる単純化されたシナリオにすぎません。 データの探索と分析の詳細については、こちらの[チュートリアル](https://learn.microsoft.com/ja-jp/azure/synapse-analytics/sql/tutorial-data-analyst)を参照してください。
 
@@ -169,8 +169,8 @@ Parquet ファイルをアップロードしたら、次の 2 つの URI で使�
 3. `DataExplorationDB` から、資格情報やデータ ソースなどのユーティリティ オブジェクトを作成します。
    
    ```sql
-   CREATE EXTERNAL DATA SOURCE ContosoLake
-   WITH ( LOCATION = 'https://contosolake.dfs.core.windows.net')
+   CREATE EXTERNAL DATA SOURCE [yourname]ContosoLake
+   WITH ( LOCATION = 'https://[yourname]contosolake.dfs.core.windows.net')
    ```
    
    > **Warning**
@@ -192,7 +192,7 @@ Parquet ファイルをアップロードしたら、次の 2 つの URI で使�
    GO
    ```
 
-5. 相対パスとデータ ソースを使用してファイルの内容を探索します。
+5. 相対パスとデータ ソースを使用してファイルの内容を探索します。（[yourname]の部分はご自身でつけた名前になります。）
    
    ```sql
    SELECT
@@ -200,7 +200,7 @@ Parquet ファイルをアップロードしたら、次の 2 つの URI で使�
    FROM
        OPENROWSET(
                BULK '/users/NYCTrip.parquet',
-               DATA_SOURCE = 'ContosoLake',
+               DATA_SOURCE = '[yourname]ContosoLake',
                FORMAT='PARQUET'
        ) AS [result]
    ```
@@ -324,11 +324,11 @@ Parquet ファイルをアップロードしたら、次の 2 つの URI で使�
 
 2. 新しい ノートブック を作成します。
 
-3. 新しいコード セルを作成し、以下のコードをそのセルに貼り付けます。
+3. 新しいコード セルを作成し、以下のコードをそのセルに貼り付けます。（[yourname]の部分はご自身でつけた名前に書き換えてください。）
    
    ```py
    %%pyspark
-   df = spark.read.load('abfss://users@contosolake.dfs.core.windows.net/NYCTrip.parquet', format='parquet')
+   df = spark.read.load('abfss://users@[yourname]contosolake.dfs.core.windows.net/NYCTrip.parquet', format='parquet')
    display(df.limit(10))
    ```
 
@@ -428,7 +428,7 @@ Parquet ファイルをアップロードしたら、次の 2 つの URI で使�
 
 2. スクリプトの上にある **[次に接続]** ドロップダウン リストで、"SQLPOOL1" プール を選択します。
 
-3. 次のコードを入力します。
+3. 次のコードを入力します。（[yourname]の部分はご自身でつけた名前に書き換えてください。）
    
    ```sql
    IF NOT EXISTS (SELECT * FROM sys.objects O JOIN sys.schemas S ON O.schema_id = S.schema_id WHERE O.NAME = 'NYCTaxiTripSmall' AND O.TYPE = 'U' AND S.NAME = 'dbo')
@@ -473,7 +473,7 @@ Parquet ファイルをアップロードしたら、次の 2 つの URI で使�
    PassengerCount 14, TripDurationSeconds 15, TripDistanceMiles 16, PaymentType 17, 
    FareAmount 18, SurchargeAmount 19, TaxAmount 20, TipAmount 21, TollsAmount 22, 
    TotalAmount 23)
-   FROM 'https://contosolake.dfs.core.windows.net/users/NYCTrip.parquet'
+   FROM 'https://[yourname]contosolake.dfs.core.windows.net/users/NYCTrip.parquet'
    WITH
    (
        FILE_TYPE = 'PARQUET'
@@ -526,7 +526,7 @@ Parquet ファイルをアップロードしたら、次の 2 つの URI で使�
 
 ここまでは、データがワークスペース内のデータベースに存在するシナリオについて説明してきました。 次に、ストレージ アカウント内のファイルを操作する方法について説明します。 このシナリオでは、ワークスペースの作成時に指定したワークスペースとコンテナーのプライマリ ストレージ アカウントを使用します。
 
-- ストレージ アカウントの名前: **contosolake**
+- ストレージ アカウントの名前: **[yourname]contosolake**
 
 - ストレージ アカウント内のコンテナーの名前: **users**
 
@@ -548,7 +548,7 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats_parquetformat")
 
 1. Synapse Studio の **[Data]** ハブに移動し、 **[Linked]** を選択します。
 
-2. **[Azure Data Lake Storage Gen2]**>**[[yourname]myworkspace (Primary - contosolake)]** に移動します。
+2. **[Azure Data Lake Storage Gen2]**>**[[yourname]myworkspace (Primary - [yourname]contosolake)]** に移動します。
 
 3. **[users (Primary)]** を選択します。 **NYCTaxi** フォルダーが表示されます。 その中に、**PassengerCountStats_csvformat** および **PassengerCountStats_parquetformat** という 2 つのフォルダーが表示されます。
 
@@ -558,7 +558,7 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats_parquetformat")
    
    ```py
    %%pyspark
-   abspath = 'abfss://users@contosolake.dfs.core.windows.net/NYCTaxi/PassengerCountStats_parquetformat/part-00000-1f251a58-d8ac-4972-9215-8d528d490690-c000.snappy.parquet'
+   abspath = 'abfss://users@[yourname]contosolake.dfs.core.windows.net/NYCTaxi/PassengerCountStats_parquetformat/part-00000-1f251a58-d8ac-4972-9215-8d528d490690-c000.snappy.parquet'
    df = spark.read.load(abspath, format='parquet')
    display(df.limit(10))
    ```
@@ -571,7 +571,7 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats_parquetformat")
    SELECT 
        TOP 100 *
    FROM OPENROWSET(
-       BULK 'https://contosolake.dfs.core.windows.net/users/NYCTaxi/PassengerCountStats_parquetformat/part-00000-1f251a58-d8ac-4972-9215-8d528d490690-c000.snappy.parquet',
+       BULK 'https://[yourname]contosolake.dfs.core.windows.net/users/NYCTaxi/PassengerCountStats_parquetformat/part-00000-1f251a58-d8ac-4972-9215-8d528d490690-c000.snappy.parquet',
        FORMAT='PARQUET'
    ) AS [result]
    ```
